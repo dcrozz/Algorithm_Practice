@@ -12,7 +12,7 @@ def quickSort(lst):
 			i += 1 
 		if i<j:
 			lst[i],lst[j] = lst[j],lst[i]
-	if j>0 :lst[:j+1] = quickSort(lst[:j+1])
+	if j>0 :lst[:j] = quickSort(lst[:j])
 	if i<len(lst)-1: lst[i+1:] = quickSort(lst[i+1:])
 	return lst
 #method told by Mr.Wang
