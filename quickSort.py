@@ -21,8 +21,9 @@ def quickSort1(lst):
 	j = len(lst) -1 
 	base = lst[i]
 	while(i<j):
-		while(lst[j] > base and i<j): j-=1
-		while(lst[i] < base and i<j): i+=1
+#can't add the retrian i>j
+		while(lst[j] > base): j-=1
+		while(lst[i] < base): i+=1
 		#ensure the i is greater than j
 		if i<=j: 
 			lst[i],lst[j] = lst[j],lst[i]
