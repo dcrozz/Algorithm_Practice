@@ -31,11 +31,11 @@ def solution2(A):
             L.append(A[i])
         else:
             lo,hi = 0,len(L)
-            mid = (lo+hi)/2
-            while lo != hi:
+            #一定要是lo<hi,因为有可能会错开
+            while lo < hi:
+                mid = (lo+hi)/2
                 if A[i] > L[mid]: lo = mid+1
                 else: hi = mid
-                mid = (lo+hi)/2
             L[mid] = A[i]
     return len(L)
 
