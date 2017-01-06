@@ -11,6 +11,7 @@ int _MaxDistance(Node * cur, int & max) //只返回深度
 	if(cur== NULL) return 0;
 	int leftDepth = _MaxDistance(cur->left,max);
 	int rightDepth = _MaxDistance(cur->right,max);
-	max = leftDepth + rightDepth;
+	if( leftDepth + rightDepth > max )
+		max = leftDepth + rightDepth;
 	return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
 }
