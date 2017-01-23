@@ -34,8 +34,8 @@ BSTNode* insertTree( BSTNode  *root, int num )
 	{
 		/*IMPORTANT*/
 		root = (BSTNode*)malloc(sizeof(struct BSTNode));//注意这边要强转，还有这边的写法
-		if(root == NULL) perror("out of space!!");//注意这边的Error
-		else
+		// if(root == NULL) perror("out of space!!");//注意这边的Error
+		// else
 		{
 			root-> data = num;
 			root-> left = NULL;
@@ -46,8 +46,8 @@ BSTNode* insertTree( BSTNode  *root, int num )
 		// insertTree( root-> right, num );
 		// 之前这样写就没连起来
 		root-> left = insertTree(root->left,num);
-	else
-		root-> right = insertTree( root-> left, num );
+	else if(root-> data < num)
+		root-> right = insertTree( root-> right, num );
 	return root;//注意是写在最后
 }
 
@@ -75,13 +75,18 @@ int main()
 {
 	// int length;
 	// scanf("%d",&length);
-	// BSTNode *root = NULL;
+	BSTNode *root = NULL;
+	insertTree( root,1 );
+	insertTree( root,2 );
+	insertTree( root,3 );
+	insertTree( root,4 );
+	printf("ok");
 	// int data;
 	// for (int i = 0; i < length; i++)
 	// {
-		scanf("%d",&data);
-		insertTree( root, data );
-	}
-	printf("%d",length); //不知道为什么后面还有个%
+	//     scanf("%d",&data);
+	//     insertTree( root, data );
+	// }
+	// printf("%d",length); //不知道为什么后面还有个%
 	// printTree(root);
 }
