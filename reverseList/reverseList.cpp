@@ -64,6 +64,12 @@ Node *reverseList(List head)
 	}
 	else
 	{
+		Node *tmp = reverseList(head->next);
+		// tmp->next = head; 不对啊擦
 
+		head->next->next = head;
+		head->next = NULL;
+
+		return tmp;
 	}
 }
